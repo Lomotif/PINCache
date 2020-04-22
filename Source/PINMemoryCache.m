@@ -5,7 +5,12 @@
 #import "PINMemoryCache.h"
 
 #import <pthread.h>
+
+#ifdef SWIFT_PACKAGE
+#import "PINOperationQueue.h"
+#else
 #import <PINOperation/PINOperation.h>
+#endif
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
 #import <UIKit/UIKit.h>

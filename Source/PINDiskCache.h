@@ -4,9 +4,15 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef SWIFT_PACKAGE
+#import "PINCacheMacros.h"
+#import "PINCaching.h"
+#import "PINCacheObjectSubscripting.h"
+#else
 #import <PINCache/PINCacheMacros.h>
 #import <PINCache/PINCaching.h>
 #import <PINCache/PINCacheObjectSubscripting.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

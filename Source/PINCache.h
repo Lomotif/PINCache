@@ -4,10 +4,17 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef SWIFT_PACKAGE
+#import "PINCacheMacros.h"
+#import "PINCaching.h"
+#import "PINDiskCache.h"
+#import "PINMemoryCache.h"
+#else
 #import <PINCache/PINCacheMacros.h>
 #import <PINCache/PINCaching.h>
 #import <PINCache/PINDiskCache.h>
 #import <PINCache/PINMemoryCache.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
