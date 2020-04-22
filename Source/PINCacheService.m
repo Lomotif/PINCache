@@ -2,7 +2,7 @@
 //  Modifications by Garrett Moon
 //  Copyright (c) 2015 Pinterest. All rights reserved.
 
-#import "PINCache.h"
+#import "PINCacheService.h"
 
 #ifdef SWIFT_PACKAGE
 #import "PINOperationQueue.h"
@@ -13,12 +13,12 @@
 static NSString * const PINCachePrefix = @"com.pinterest.PINCache";
 static NSString * const PINCacheSharedName = @"PINCacheShared";
 
-@interface PINCache ()
+@interface PINCacheService ()
 @property (copy, nonatomic) NSString *name;
 @property (strong, nonatomic) PINOperationQueue *operationQueue;
 @end
 
-@implementation PINCache
+@implementation PINCacheService
 
 #pragma mark - Initialization -
 
@@ -87,13 +87,13 @@ static NSString * const PINCacheSharedName = @"PINCacheShared";
     return [[NSString alloc] initWithFormat:@"%@.%@.%p", PINCachePrefix, _name, (void *)self];
 }
 
-+ (PINCache *)sharedCache
++ (PINCacheService *)sharedCache
 {
-    static PINCache *cache;
+    static PINCacheService *cache;
     static dispatch_once_t predicate;
     
     dispatch_once(&predicate, ^{
-        cache = [[PINCache alloc] initWithName:PINCacheSharedName];
+        cache = [[PINCacheService alloc] initWithName:PINCacheSharedName];
     });
     
     return cache;
@@ -380,7 +380,7 @@ static NSString * const PINCacheSharedName = @"PINCacheShared";
 
 @end
 
-@implementation PINCache (Deprecated)
+@implementation PINCacheService (Deprecated)
 
 - (void)containsObjectForKey:(NSString *)key block:(PINCacheObjectContainmentBlock)block
 {
