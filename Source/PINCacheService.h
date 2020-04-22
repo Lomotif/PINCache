@@ -10,15 +10,13 @@
 #import "PINDiskCache.h"
 #import "PINMemoryCache.h"
 #else
-#import <PINCache/PINCacheMacros.h>
-#import <PINCache/PINCaching.h>
-#import <PINCache/PINDiskCache.h>
-#import <PINCache/PINMemoryCache.h>
+#import <PINCache/PINCache.h>
 #endif
+
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PINCache;
+@class PINCacheService;
 
 
 /**
@@ -39,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 PIN_SUBCLASSING_RESTRICTED
-@interface PINCache : NSObject <PINCaching, PINCacheObjectSubscripting>
+@interface PINCacheService : NSObject <PINCaching, PINCacheObjectSubscripting>
 
 #pragma mark -
 /// @name Core
@@ -67,7 +65,7 @@ PIN_SUBCLASSING_RESTRICTED
  
  @result The shared singleton cache instance.
  */
-@property (class, strong, readonly) PINCache *sharedCache;
+@property (class, strong, readonly) PINCacheService *sharedCache;
 
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -158,7 +156,7 @@ PIN_SUBCLASSING_RESTRICTED
 
 @end
 
-@interface PINCache (Deprecated)
+@interface PINCacheService (Deprecated)
 - (void)containsObjectForKey:(NSString *)key block:(PINCacheObjectContainmentBlock)block __attribute__((deprecated));
 - (void)objectForKey:(NSString *)key block:(PINCacheObjectBlock)block __attribute__((deprecated));
 - (void)setObject:(id <NSCoding>)object forKey:(NSString *)key block:(nullable PINCacheObjectBlock)block __attribute__((deprecated));
