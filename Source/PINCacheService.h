@@ -3,15 +3,10 @@
 //  Copyright (c) 2015 Pinterest. All rights reserved.
 
 #import <Foundation/Foundation.h>
-
-#ifdef SWIFT_PACKAGE
 #import "PINCacheMacros.h"
 #import "PINCaching.h"
 #import "PINDiskCache.h"
 #import "PINMemoryCache.h"
-#else
-#import <PINCache/PINCache.h>
-#endif
 
 
 NS_ASSUME_NONNULL_BEGIN
