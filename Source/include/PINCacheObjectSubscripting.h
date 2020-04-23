@@ -1,1 +1,1 @@
-/Users/casey/Documents/PINCache/Source/PINCacheObjectSubscripting.h
+../PINCacheObjectSubscripting.h
